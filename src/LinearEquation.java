@@ -7,9 +7,13 @@ public class LinearEquation {
 
 
     /* Creates a LinearEquation object */
-/* PRECONDITION: x1 and x2 are NOT equal (client programs are responsible for ensuring
-   this precondition is not violated)
-public LinearEquation(int x1, int y1, int x2, int y2)
+    //PRECONDITION: x1 and x2 are NOT equal (client programs are responsible for ensuring this precondition is not violated)
+    public LinearEquation(int x1, int y1, int x2, int y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
+    }
 
 
 /* Calculates and returns distance between (x1, y1) and (x2, y2), rounded to
