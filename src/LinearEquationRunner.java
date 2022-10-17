@@ -20,7 +20,6 @@ public class LinearEquationRunner {
         if (stringX1.equals(stringX2)) {
             System.out.println("These coordinates result in a vertical line at x = " + stringX1);
         }
-
         // getting coordinate values
         int x1 = Integer.parseInt(stringX1);
         int y1 = Integer.parseInt(stringY1);

@@ -27,7 +27,6 @@ public LinearEquation(int x1, int y1, int x2, int y2)
     }
 
 
-
     /* Calculates and returns the slope of the line between (x1, y1) and
        (x2, y2), rounded to the nearest hundredth */
     public double slope() {
