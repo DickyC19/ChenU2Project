@@ -26,5 +26,12 @@ public class LinearEquationRunner {
         int x2 = Integer.parseInt(stringX2);
         int y2 = Integer.parseInt(stringY2);
 
+        // creating LinearEquation object
+        LinearEquation linearEquation = new LinearEquation(x1, y1, x2, y2);
+
+        System.out.println("The y-intercept of the line is: " + linearEquation.yIntercept());
+        System.out.println("The slope of this line is: " + linearEquation.slope());
+        System.out.println("The distance between the two points is: " + linearEquation.distance());
+
     }
 }
