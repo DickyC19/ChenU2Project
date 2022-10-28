@@ -69,14 +69,37 @@ public class LinearEquation {
         int changeInY = (y2 - y1);
         int changeInX = (x2 - x1);
 
-
-        String equation = "y = " + changeInY + "/" + changeInX + "x" + " + " + yIntercept();
-        if (yIntercept() == 0) {
-            equation.substring(0, equation.indexOf("+"));
-        }
+        String equation = "y = " + changeInY + "/" + changeInX + "x"; // base equation without y-intercept
         if (changeInX == changeInY) {
-            equation = "x" + yIntercept();
+            equation = "y = x"; // checks for a slope of 1
+        } else if (changeInY % changeInX == 0) {
+            equation = "y = " + changeInY / changeInX + "x"; // checks for a reducible fraction
         }
+
+        if ((changeInX < 0) && (changeInY < 0)) {
+            equation = "y = " + Math.abs(changeInY) + "/" + Math.abs(changeInX) + "x"; // checks for a slope with negative numerators and denominators
+        } else if (changeInY / changeInX == -1) {
+            equation = "y = -x"; // checks for a slope of -1
+        } else if (changeInX < 0) {
+            equation = "y = -" + changeInY + "/" + Math.abs(changeInX) + "x"; // checks for a negative changeInX
+        }
+
+        if (yIntercept() < 0) {
+            equation += " - " + Math.abs(yIntercept()); // checks for a negative y-intercept
+        } else if (yIntercept() == 0) {
+            return equation; // checks for a y-intercept of 0
+        }
+
+        if (changeInY == 0) {
+            if ((int) (yIntercept()) == yIntercept()) { // checks for horizontal slope
+                equation = "y = " + (int) (yIntercept());
+            } else {
+                equation = "y = " + yIntercept();
+            }
+        } else {
+            equation += " + " + yIntercept(); // default y-intercept
+        }
+
         return equation;
     }
 
@@ -87,7 +110,8 @@ public class LinearEquation {
     /* Returns a String of the coordinate point on the line that has the given x value, with
        both x and y coordinates as decimals to the nearest hundredth, e.g (-5.0, 6.75) */
     public String coordinateForX(double xValue) {
-        return "22";
+        double yCoordinate = slope() * xValue + yIntercept();
+        return "(" + xValue + ", " + yCoordinate + ")";
     }
 
 
@@ -119,7 +143,10 @@ public class LinearEquation {
       */
     public String lineInfo() {
         return "The two points are: (" + x1 + ", " + y1 + ")" + " and (" + x2 + ", " + y2 + ")" + "\n" +
-                ;
+                "The equation of the line between these points is: " + equation() + "\n" +
+                "The slope of this line is: " + slope() + "\n" +
+                "The y-intercept of the line is: " + yIntercept() + "\n" +
+                "The distance between the two points is: " + distance();
     }
 
 }

@@ -1,9 +1,9 @@
 public class test {
     public static void main(String[] args) {
-        int x1 = -1;
-        int y1 = 5;
-        int x2 = 3;
-        int y2 = 10;
+        int x1 = 2;
+        int y1 = 10;
+        int x2 = -1;
+        int y2 = 3;
         LinearEquation equation = new LinearEquation(x1, y1, x2, y2);
         System.out.println("Equation: " + equation.equation());
         System.out.println("Slope: " + equation.slope());

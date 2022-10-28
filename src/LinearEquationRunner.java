@@ -18,7 +18,8 @@ public class LinearEquationRunner {
 
         // checking for vertical line
         if (stringX1.equals(stringX2)) {
-            System.out.println("These coordinates result in a vertical line at x = " + stringX1);
+            System.out.println("These points are on a vertical line: x = " + stringX1);
+            return;
         }
         // getting coordinate values
         int x1 = Integer.parseInt(stringX1);
@@ -29,9 +30,21 @@ public class LinearEquationRunner {
         // creating LinearEquation object
         LinearEquation linearEquation = new LinearEquation(x1, y1, x2, y2);
 
-        System.out.println("The y-intercept of the line is: " + linearEquation.yIntercept());
-        System.out.println("The slope of this line is: " + linearEquation.slope());
-        System.out.println("The distance between the two points is: " + linearEquation.distance());
+        // empty line
+        System.out.println();
+        // calling LinearEquations object's information
+        System.out.println(linearEquation.lineInfo());
+        // empty line
+        System.out.println();
 
+        // user enters value for x
+        System.out.print("Enter a value for x: ");
+        double xValue = scan.nextDouble();
+        scan.nextLine();
+        // empty line
+        System.out.println();
+
+        // user receives point on the line
+        System.out.print("The point on the line is " + linearEquation.coordinateForX(xValue));
     }
 }
