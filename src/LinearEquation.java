@@ -78,7 +78,7 @@ public class LinearEquation {
         }
 
         if (changeInX == changeInY) {
-            equation = "y = x"; // checks for a slope of
+            equation = "y = x"; // checks for a slope of 1
         } else if (changeInY / (double) changeInX == -1) {
             equation = "y = -x"; // checks for a slope of -1
         } else if (changeInY % changeInX == 0) {
