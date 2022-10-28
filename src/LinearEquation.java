@@ -73,21 +73,18 @@ public class LinearEquation {
 
         if ((changeInX < 0) && (changeInY < 0)) {
             equation = "y = " + Math.abs(changeInY) + "/" + Math.abs(changeInX) + "x"; // checks for a slope with negative numerators and denominators
-        } else if (changeInY / changeInX == -1) {
-            equation = "y = -x"; // checks for a slope of -1
         } else if (changeInX < 0) {
             equation = "y = -" + changeInY + "/" + Math.abs(changeInX) + "x"; // checks for a negative changeInX
         }
 
         if (changeInX == changeInY) {
-            equation = "y = x"; // checks for a slope of 1
+            equation = "y = x"; // checks for a slope of
+        } else if (changeInY / (double) changeInX == -1) {
+            equation = "y = -x"; // checks for a slope of -1
         } else if (changeInY % changeInX == 0) {
             equation = "y = " + changeInY / changeInX + "x"; // checks for a reducible fraction
         }
 
-        if (changeInY == 0) {
-            equation = "y = " + (int) (yIntercept()); // checks for horizontal slope
-        }
 
         if (yIntercept() < 0) {
             equation += " - " + Math.abs(yIntercept()); // checks for a negative y-intercept
@@ -95,6 +92,10 @@ public class LinearEquation {
             return equation; // checks for a y-intercept of 0
         } else {
             equation += " + " + yIntercept(); // default y-intercept
+        }
+
+        if (changeInY == 0){
+            equation = "y = " + (int) (yIntercept()); // checks for a horizontal slope
         }
 
         return equation;
