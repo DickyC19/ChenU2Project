@@ -70,11 +70,6 @@ public class LinearEquation {
         int changeInX = (x2 - x1);
 
         String equation = "y = " + changeInY + "/" + changeInX + "x"; // base equation without y-intercept
-        if (changeInX == changeInY) {
-            equation = "y = x"; // checks for a slope of 1
-        } else if (changeInY % changeInX == 0) {
-            equation = "y = " + changeInY / changeInX + "x"; // checks for a reducible fraction
-        }
 
         if ((changeInX < 0) && (changeInY < 0)) {
             equation = "y = " + Math.abs(changeInY) + "/" + Math.abs(changeInX) + "x"; // checks for a slope with negative numerators and denominators
@@ -84,18 +79,20 @@ public class LinearEquation {
             equation = "y = -" + changeInY + "/" + Math.abs(changeInX) + "x"; // checks for a negative changeInX
         }
 
+        if (changeInX == changeInY) {
+            equation = "y = x"; // checks for a slope of 1
+        } else if (changeInY % changeInX == 0) {
+            equation = "y = " + changeInY / changeInX + "x"; // checks for a reducible fraction
+        }
+
+        if (changeInY == 0) {
+            equation = "y = " + (int) (yIntercept()); // checks for horizontal slope
+        }
+
         if (yIntercept() < 0) {
             equation += " - " + Math.abs(yIntercept()); // checks for a negative y-intercept
         } else if (yIntercept() == 0) {
             return equation; // checks for a y-intercept of 0
-        }
-
-        if (changeInY == 0) {
-            if ((int) (yIntercept()) == yIntercept()) { // checks for horizontal slope
-                equation = "y = " + (int) (yIntercept());
-            } else {
-                equation = "y = " + yIntercept();
-            }
         } else {
             equation += " + " + yIntercept(); // default y-intercept
         }

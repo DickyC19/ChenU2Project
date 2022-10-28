@@ -18,7 +18,7 @@ public class LinearEquationRunner {
 
         // checking for vertical line
         if (stringX1.equals(stringX2)) {
-            System.out.println("These points are on a vertical line: x = " + stringX1);
+            System.out.println("\n These points are on a vertical line: x = " + stringX1);
             return;
         }
         // getting coordinate values
