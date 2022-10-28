@@ -85,7 +85,6 @@ public class LinearEquation {
             equation = "y = " + changeInY / changeInX + "x"; // checks for a reducible fraction
         }
 
-
         if (yIntercept() < 0) {
             equation += " - " + Math.abs(yIntercept()); // checks for a negative y-intercept
         } else if (yIntercept() == 0) {
